@@ -1,0 +1,9 @@
+poetry run python truncate_table.py
+Ratings Table Truncated successfully..!!
+RatingsMonthlyAggregates Table Truncated successfully..!!
+ poetry run python data_gen.py          
+ poetry run python count_check.py   
+[(100000,)]
+ poetry run python compute_aggregates.py
+ poetry run python top_products.py  
+ python3 -m unittest unit_tests.py
