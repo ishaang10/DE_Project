@@ -36,12 +36,20 @@ class projectTest(unittest.TestCase):
         count = c.fetchone()[0]
         self.assertGreater(count, 0, "Aggregates table should have some data")
 
-        # # Optionally, check the correctness of aggregate values
-        # c.execute('SELECT AVG(rating) FROM RatingsMonthlyAggregates')
-        # average_rating = c.fetchone()[0]
-        # self.assertIsNotNone(average_rating, "Aggregates table should have average ratings calculated")
+        conn.close()
+
+    def test_compute_aggregates_values(self):
+        compute_monthly_aggregates()
+
+        # Ensure that aggregates are computed
+        conn = sqlite3.connect('../database/ratings.db')
+        c = conn.cursor()
+        c.execute('SELECT COUNT(*) FROM RatingsMonthlyAggregates where average_rating <0.0 or average_rating >5.0')
+        count = c.fetchone()[0]
+        self.assertEqual(0, count, "Table should always have ratings between 0.0 to 5.0")
 
         conn.close()
+
 
     def test_find_top_products(self):
         top_products_out = top_products()
