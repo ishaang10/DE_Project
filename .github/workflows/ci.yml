@@ -19,6 +19,7 @@ jobs:
           poetry install
       - name: Run tests
         run: |
+          cd source
           poetry run python data_gen.py
           poetry run python compute_aggregates.py
           poetry run python -m unittest unit_tests/unit_tests.py
