@@ -1,7 +1,4 @@
-# DE_Project
-DE Project for Monthly average ratings and top products
-
-## Steps to run 
+DE_Project steps to run 
 
 Navigate to Source package where all the Python modules are.
 
@@ -26,3 +23,26 @@ poetry run python top_products.py
 Step 5 - After executing all the development modules it is time to run the unit tests.
 
 poetry run python -m unittest unit_tests/unit_tests.py
+
+
+
+
+
+
+
+
+
+
+poetry run python truncate_table.py
+Ratings Table Truncated successfully..!!
+RatingsMonthlyAggregates Table Truncated successfully..!!
+ poetry run python data_gen.py          
+ poetry run python count_check.py   
+[(100000,)]
+ poetry run python compute_aggregates.py
+ poetry run python top_products.py  
+ python3 -m unittest unit_tests.py
+
+poetry run python -m unittest unit_tests/unit_tests.py
+
+poetry run python -m unittest unit_tests.py
