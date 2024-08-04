@@ -1,8 +1,8 @@
 import unittest
 import sqlite3
-from source.data_gen import database_create,populate_data
-from source.compute_aggregates import compute_monthly_aggregates
-from source.top_products import top_products
+from data_gen import database_create,populate_data
+from compute_aggregates import compute_monthly_aggregates
+from top_products import top_products
 
 
 
